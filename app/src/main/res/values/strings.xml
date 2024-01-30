@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TakeNote</string>
+    <string name="takenote">TakeNote</string>
+    <string name="capture_your_ideas_anytime_anywhere_with_ease">Capture your ideas, anytime, anywhere with ease!</string>
+    <string name="notes">Notes</string>
+    <string name="archived_notes">Archived Notes</string>
+    <string name="todo">TODO</string>
+    <string name="_3_april_2023">3 April 2023</string>
 </resources>
