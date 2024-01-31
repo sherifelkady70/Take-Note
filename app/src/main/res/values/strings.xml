@@ -6,4 +6,7 @@
     <string name="archived_notes">Archived Notes</string>
     <string name="todo">TODO</string>
     <string name="_3_april_2023">3 April 2023</string>
+    <string name="are_you_sure_you_want_to_delete_n_this_note">Are you sure you want to delete\n this note?</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
 </resources>
