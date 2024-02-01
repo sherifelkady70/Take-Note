@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#333232"
+    tools:context=".ui.activities.CreateNoteActivity"
     >
 
     <androidx.core.widget.NestedScrollView
@@ -34,15 +35,16 @@
                     <EditText
                         android:id="@+id/edt_note_title"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:background="@drawable/edit_text_shape"
                         android:textStyle="bold"
-                        android:hint="Title"
+                        android:hint="@string/title"
                         android:padding="@dimen/_16sdp"
                         android:layout_weight="1"
                         android:textColor="@color/white"
-                        />
+                        android:autofillHints=""
+                        android:inputType="text" />
 
                     <EditText
                         android:id="@+id/edt_note_details"
@@ -50,16 +52,17 @@
                         android:layout_height="@dimen/_350sdp"
                         android:layout_marginTop="@dimen/_16sdp"
                         android:background="@drawable/edit_text_shape"
-                    android:textStyle="bold"
+                        android:textStyle="bold"
                         android:gravity="top"
-                        android:hint="note details.."
+                        android:hint="@string/note_details"
                         android:overScrollMode="always"
                         android:fadeScrollbars="false"
                         android:padding="@dimen/_15sdp"
                         android:scrollbarStyle="insideInset"
                         android:scrollbars="vertical"
                         android:textColor="@color/white"
-                        />
+                        android:autofillHints=""
+                        android:inputType="text" />
 
 
                 </LinearLayout>
@@ -84,8 +87,9 @@
         android:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-
         tools:layout_editor_absoluteX="320dp"
-        tools:layout_editor_absoluteY="644dp" />
+        tools:layout_editor_absoluteY="644dp"
+        android:focusable="true"
+        android:contentDescription="@string/todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
