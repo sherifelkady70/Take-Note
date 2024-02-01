@@ -75,7 +75,7 @@
                     android:layout_marginTop="12dp"
                     android:gravity="center_vertical"
                     android:maxLines="1"
-                    android:text="@string/_3_april_2023"
+                    tools:text="@string/_3_april_2023"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -98,9 +98,10 @@
                     android:layout_height="25dp"
                     android:src="@drawable/baseline_delete_24"
                     app:tint="#CC1A1A"
+                    android:clickable="true"
                     android:layout_marginTop="12dp"
                     android:contentDescription="@string/todo"
-                    />
+                    android:focusable="true" />
 
             </LinearLayout>
 

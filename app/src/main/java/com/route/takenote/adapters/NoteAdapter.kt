@@ -15,6 +15,16 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
         this.dataList=newList
         notifyDataSetChanged()
     }
+
+    fun removeNoteFromList(index: Int) {
+        dataList.removeAt(index)
+        notifyItemRemoved(index)
+    }
+
+    fun setListItem(data:DataItems,position: Int){
+        dataList[position]=data
+        notifyItemChanged(position)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val layuotInflator = ItemNoteBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return NoteViewHolder(layuotInflator)
@@ -43,14 +53,16 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
 
 
+
     class NoteViewHolder(val binding : ItemNoteBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(note: DataItems){
             binding.title.text = note.title
             binding.details.text = note.details
+            binding.date.text = note.date
             if(note.isArchived){
-                binding.archiveImv.setImageResource(R.drawable.baseline_unarchive_24)
-            }else{
                 binding.archiveImv.setImageResource(R.drawable.baseline_archive_24)
+            }else{
+                binding.archiveImv.setImageResource(R.drawable.baseline_unarchive_24)
             }
         }
     }

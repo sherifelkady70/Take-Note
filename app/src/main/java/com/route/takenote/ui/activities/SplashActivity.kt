@@ -13,6 +13,7 @@ class SplashActivity : AppCompatActivity() {
 
         Handler(mainLooper).postDelayed(
             { makeIntent() },2000)
+        supportActionBar?.hide()
     }
 
     private fun makeIntent() {
