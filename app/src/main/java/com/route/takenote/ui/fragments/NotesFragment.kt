@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.route.takenote.adapters.NoteAdapter
 import com.route.takenote.databinding.FragmentNotesBinding
 import com.route.takenote.model.DataItems
+import com.route.takenote.model.allNotesItems
 import com.route.takenote.ui.activities.CreateNoteActivity
 
 class NotesFragment : Fragment() {
     lateinit var binding: FragmentNotesBinding
-    lateinit var adapter: NoteAdapter
+    val adapter = NoteAdapter()
     val dataList = ArrayList<DataItems>()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,14 +41,9 @@ class NotesFragment : Fragment() {
     }
 
     private fun prepareRv() {
-        val title = arguments?.getString("tit")
-        val details = arguments?.getString("deta")
-        val dataList = ArrayList<DataItems>()
-        dataList.add(DataItems(title.toString(),details.toString()))
-        adapter = NoteAdapter()
-        adapter.setList(dataList)
+        binding.rvAllNotes.adapter = adapter
+        adapter.setMyList(allNotesItems.filter { allNotesItems -> !allNotesItems.isArchived }.toMutableList())
         binding.rvAllNotes.layoutManager = LinearLayoutManager(requireContext()
             ,LinearLayoutManager.VERTICAL,false)
-        binding.rvAllNotes.adapter = adapter
     }
 }

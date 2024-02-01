@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.route.takenote.databinding.CreateNoteActivityBinding
+import com.route.takenote.model.DataItems
+import com.route.takenote.model.allNotesItems
 import com.route.takenote.ui.fragments.NotesFragment
 
 class CreateNoteActivity : AppCompatActivity() {
@@ -20,6 +22,7 @@ class CreateNoteActivity : AppCompatActivity() {
             val intent = Intent(this@CreateNoteActivity,MainActivity::class.java)
             intent.putExtra("tit",title)
             intent.putExtra("deta",details)
+            allNotesItems.add(DataItems(title,details,"",false))
             startActivity(intent)
         }
 

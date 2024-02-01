@@ -10,8 +10,8 @@ import com.route.takenote.model.DataItems
 class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
 
-    var dataList = ArrayList<DataItems>()
-    fun setList(newList : ArrayList<DataItems>){
+    var dataList = mutableListOf<DataItems>()
+    fun setMyList(newList : MutableList<DataItems>){
         this.dataList=newList
         notifyDataSetChanged()
     }
@@ -25,13 +25,19 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
+        val data : DataItems = dataList[position]
+        holder.bind(data)
 
-
-        holder.binding.deleteImv.setOnClickListener {
-
+        onArshivClick?.let {
+            holder.binding.archiveImv.setOnClickListener {
+                onArshivClick?.onArshivClickListener(data,position)
+            }
         }
-        holder.binding.archiveImv.setOnClickListener {
 
+        onDeleteClick?.let {
+            holder.binding.deleteImv.setOnClickListener {
+                onDeleteClick?.onDeleteClickListener(position)
+            }
         }
     }
 
@@ -47,5 +53,13 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
                 binding.archiveImv.setImageResource(R.drawable.baseline_archive_24)
             }
         }
+    }
+    var onArshivClick : OnArshivClickListenter?=null
+    interface OnArshivClickListenter{
+        fun onArshivClickListener(note : DataItems ,position: Int)
+    }
+    var onDeleteClick : OnDeleteClickListener?=null
+    interface OnDeleteClickListener{
+        fun onDeleteClickListener(position: Int)
     }
 }

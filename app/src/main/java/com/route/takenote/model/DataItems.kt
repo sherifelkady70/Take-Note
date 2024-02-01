@@ -6,3 +6,6 @@ data class DataItems(
     var date : String,
     var isArchived : Boolean
 )
+
+
+val allNotesItems = mutableListOf<DataItems>()
